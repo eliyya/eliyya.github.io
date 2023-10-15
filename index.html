@@ -1,24 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="./favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="modulepreload" href="./_app/immutable/entry/start.6eaee1e6.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.e108d1fd.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.6cce2bc8.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.bcb692b0.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.a21d6cee.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.cc2a4f72.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.5805b991.js">
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">  <h1 data-svelte-h="svelte-yyjjjs">Welcome to SvelteKit</h1> <p data-svelte-h="svelte-jl9sbz">Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> 
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="./favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		<link href="./_app/immutable/assets/0.4a86bfdd.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.e5a6c703.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.e2e9800d.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.9d0fe8d6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.76ac41fc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.10197a03.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.e570659f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.812c82da.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.737b8214.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.a63a33bb.js">
+</head>
+
+<body data-sveltekit-preload-data="hover" style="margin: 0;" data-theme="skeleton">
+	<div style="display: contents">  <main class="flex flex-row w-screen h-screen overflow-hidden"><section class="flex-1 flex justify-center items-center bg-neutral-900" id="code"> <div class="codeblock overflow-hidden shadow bg-neutral-900/90  text-sm text-white rounded-container-token shadow-none " data-testid="codeblock"> <header class="codeblock-header text-xs text-white/50 uppercase flex justify-between items-center p-2 pl-4"> <span class="codeblock-language">typescript</span>  <button class="codeblock-btn btn btn-sm variant-soft !text-white">Copy</button></header>  <pre class="codeblock-pre whitespace-pre-wrap break-all p-4 pt-1"><code class="codeblock-code language-ts lineNumbers"><!-- HTML_TAG_START --><span class="line"></span>	<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Router</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;https://deno.land/x/oak@v12.6.0/mod.ts&#x27;</span>
+<span class="line"></span>	<span class="hljs-keyword">import</span> { generateToken } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../utils/token.ts&#x27;</span>
+<span class="line"></span>	<span class="hljs-keyword">import</span> { getUser } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../db.ts&#x27;</span>
+<span class="line"></span>	
+<span class="line"></span>	<span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Router</span>();
+<span class="line"></span>	
+<span class="line"></span>	router
+<span class="line"></span>	  .<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/authorize&quot;</span>, <span class="hljs-keyword">async</span> (ctx) =&gt; {
+<span class="line"></span>	    <span class="hljs-comment">// check if body exists</span>
+<span class="line"></span>	    <span class="hljs-keyword">if</span> (!ctx.<span class="hljs-property">request</span>.<span class="hljs-property">hasBody</span>) {
+<span class="line"></span>	      ctx.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> = <span class="hljs-number">400</span>;
+<span class="line"></span>	      ctx.<span class="hljs-property">response</span>.<span class="hljs-property">body</span> = { <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Invalid request&quot;</span> };
+<span class="line"></span>	      <span class="hljs-keyword">return</span>;
+<span class="line"></span>	    }
+<span class="line"></span>	
+<span class="line"></span>	    <span class="hljs-keyword">const</span> { user, password } = <span class="hljs-keyword">await</span> ctx.<span class="hljs-property">request</span>.<span class="hljs-title function_">body</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;json&quot;</span> }).<span class="hljs-property">value</span>;
+<span class="line"></span>	    <span class="hljs-comment">// check the credentials</span>
+<span class="line"></span>	    <span class="hljs-keyword">if</span> (user !== <span class="hljs-string">&#x27;&#x27;</span>) {
+<span class="line"></span>	      ctx.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> = <span class="hljs-number">400</span>;
+<span class="line"></span>	      ctx.<span class="hljs-property">response</span>.<span class="hljs-property">body</span> = { <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Invalid credentials&quot;</span> };
+<span class="line"></span>	      <span class="hljs-keyword">return</span>;
+<span class="line"></span>	    }
+<span class="line"></span>	    <span class="hljs-keyword">if</span> (password !== <span class="hljs-string">&#x27;&#x27;</span>) {
+<span class="line"></span>	      ctx.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> = <span class="hljs-number">400</span>;
+<span class="line"></span>	      ctx.<span class="hljs-property">response</span>.<span class="hljs-property">body</span> = { <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Invalid credentials&quot;</span> };
+<span class="line"></span>	      <span class="hljs-keyword">return</span>;
+<span class="line"></span>	    }
+<span class="line"></span>	    
+<span class="line"></span>	    <span class="hljs-comment">// get the token</span>
+<span class="line"></span>	    <span class="hljs-keyword">const</span> userInfo = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getUser</span>(user)
+<span class="line"></span>	    <span class="hljs-keyword">const</span> token = <span class="hljs-keyword">await</span> <span class="hljs-title function_">generateToken</span>(userinfo)
+<span class="line"></span>	
+<span class="line"></span>	    <span class="hljs-comment">// return the token</span>
+<span class="line"></span>	    ctx.<span class="hljs-property">response</span>.<span class="hljs-property">body</span> = token;
+<span class="line"></span>	  })
+<span class="line"></span>	
+<span class="line"></span>	<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> router;<!-- HTML_TAG_END --></code></pre></div></section> <section class="flex-1 flex justify-center items-center bg-[#d4d8e5]" id="login"><form class="flex flex-col gap-3"><label class="label"><span data-svelte-h="svelte-s6n4r1">User</span> <input class="input variant-form-material" title="user" type="text" placeholder="@username" value=""></label> <label class="label"><span data-svelte-h="svelte-1kvjhoz">Password</span> <input class="input variant-form-material" title="password" type="password" placeholder="********" value=""></label> <button class="btn variant-form-material w-full" data-svelte-h="svelte-3cod4a">Submit</button> <label class="label" data-svelte-h="svelte-2ln2hz"><small>forgot password?</small></label></form></section></main> 
 			
 			<script>
 				{
-					__sveltekit_69m53p = {
+					__sveltekit_atfx00 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -28,8 +69,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.6eaee1e6.js"),
-						import("./_app/immutable/entry/app.bcb692b0.js")
+						import("./_app/immutable/entry/start.e2e9800d.js"),
+						import("./_app/immutable/entry/app.e570659f.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
@@ -41,5 +82,6 @@
 				}
 			</script>
 		</div>
-	</body>
+</body>
+
 </html>
