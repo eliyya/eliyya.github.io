@@ -17,7 +17,58 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<!-- clone of visual studio code -->
+		<header>
+			<div><button>i</button><button>d</button></div>
+			<search><input type="text" /></search>
+			<div>
+				<button>a</button>
+				<button>b</button>
+				<button>c</button>
+				<button>d</button>
+			</div>
+		</header>
+		<div class="left">
+			<ul>
+				<li>F</li>
+				<li>S</li>
+				<li>G</li>
+				<li>E</li>
+			</ul>
+			<aside>
+				<header>Explorer</header>
+				<nav>
+					<div>
+						<span>public</span>
+						<a href="#">favicon.svg</a>
+					</div>
+					<div>
+						<span>src</span>
+						<div>
+							<span>components</span>
+							<a href="#">Card.astro</a>
+						</div>
+						<a href="#">README.md</a>
+					</div>
+				</nav>
+			</aside>
+			<!-- <slot /> -->
+			<main>holi</main>
+		</div>
+		<footer>
+			<ul>
+				<li>GitHub</li>
+				<li>astro</li>
+			</ul>
+			<ul>
+				<li>Ln 1, Col 1</li>
+				<li>Tab Size: 4</li>
+				<li>UTF-8</li>
+				<li>LF</li>
+				<li>TypeScript</li>
+				<li>N</li>
+			</ul>
+		</footer>
 	</body>
 </html>
 <style is:global>
@@ -47,5 +98,58 @@ const { title } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+	header {
+		/* background: rgb(var(--accent)); */
+		background-color: #29353b;
+		color: white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 35px;
+		max-height: 35px;
+		flex-wrap: nowrap;
+		gap: 10px;
+		padding: 0 10px;
+	}
+	header > div {
+		flex-grow: 1;
+		display: flex;
+		justify-content: flex-end;
+	}
+	header > search > input {
+		background: #1e2429;
+		border: none;
+		border-radius: 3px;
+		height: 22px;
+		color: white;
+	}
+	.left {
+		display: flex;
+		flex-grow: 1;
+	}
+	footer {
+		/* background: rgb(var(--accent)); */
+		background-color: #181818;
+		color: white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 22px;
+		overflow: hidden;
+	}
+
+	footer ul {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 </style>
