@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ActivityBar from "../components/ActivityBar.astro";
 
 interface Props {
 	title: string;
@@ -22,13 +23,8 @@ const { title } = Astro.props;
 	<body>
 		<!-- clone of visual studio code -->
 		<Header />
-		<div class="left">
-			<ul>
-				<li>F</li>
-				<li>S</li>
-				<li>G</li>
-				<li>E</li>
-			</ul>
+		<div class="central">
+			<ActivityBar />
 			<aside>
 				<header>Explorer</header>
 				<nav>
@@ -87,7 +83,7 @@ const { title } = Astro.props;
 		flex-direction: column;
 		height: 100vh;
 	}
-	.left {
+	.central {
 		display: flex;
 		flex-grow: 1;
 	}
