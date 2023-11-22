@@ -13,8 +13,8 @@
 
     let username = "";
     let password = "";
-    let code = "";
     let isFocused = true;
+    let code = "";
 
     const submit: EventHandler<SubmitEvent, HTMLFormElement> = (e) => {
         window.location.href = "/portfolio";
@@ -96,7 +96,9 @@ export default router;`;
                 />
             </label>
             <button class="btn variant-form-material w-full">Submit</button>
-            <label class="label"><small>forgot password?</small></label>
+            <span class="label">
+                <small><a href="/portfolio">forgot password?</a></small>
+            </span>
         </form>
     </section>
 </main>
