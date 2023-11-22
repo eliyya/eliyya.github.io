@@ -1,4 +1,7 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
 interface Props {
 	title: string;
 }
@@ -18,16 +21,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<!-- clone of visual studio code -->
-		<header>
-			<div><button>i</button><button>d</button></div>
-			<search><input type="text" /></search>
-			<div>
-				<button>a</button>
-				<button>b</button>
-				<button>c</button>
-				<button>d</button>
-			</div>
-		</header>
+		<Header />
 		<div class="left">
 			<ul>
 				<li>F</li>
@@ -55,28 +49,7 @@ const { title } = Astro.props;
 			<!-- <slot /> -->
 			<main>holi</main>
 		</div>
-		<footer>
-			<ul>
-				<li>
-					<a class="github" href="https://github.com/eliyya/"
-						>GitHub</a
-					>
-				</li>
-				<li>
-					<a href="https://github.com/eliyya/eliyya.github.io"
-						>portfolio</a
-					>
-				</li>
-			</ul>
-			<ul>
-				<li>Ln 1, Col 1</li>
-				<li>Tab Size: 4</li>
-				<li>UTF-8</li>
-				<li>LF</li>
-				<li>TypeScript</li>
-				<li>N</li>
-			</ul>
-		</footer>
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -114,76 +87,8 @@ const { title } = Astro.props;
 		flex-direction: column;
 		height: 100vh;
 	}
-	header {
-		/* background: rgb(var(--accent)); */
-		background-color: #29353b;
-		color: white;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		height: 35px;
-		max-height: 35px;
-		flex-wrap: nowrap;
-		gap: 10px;
-		padding: 0 10px;
-	}
-	header > div {
-		flex-grow: 1;
-		display: flex;
-		justify-content: flex-end;
-	}
-	header > search > input {
-		background: #1e2429;
-		border: none;
-		border-radius: 3px;
-		height: 22px;
-		color: white;
-	}
 	.left {
 		display: flex;
 		flex-grow: 1;
-	}
-	footer {
-		/* background: rgb(var(--accent)); */
-		background-color: #181818;
-		color: white;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		height: 22px;
-	}
-
-	footer ul {
-		display: flex;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		align-items: center;
-	}
-	footer ul li {
-		font-size: 12px;
-		display: flex;
-		height: 100%;
-		align-items: center;
-	}
-	footer ul li a {
-		padding: 0 5px;
-		color: white;
-		text-decoration: none;
-		height: 100%;
-		display: flex;
-		align-items: center;
-	}
-	footer ul li:not(:has(a)) {
-		padding: 0 10px;
-		color: white;
-		text-decoration: none;
-		height: 100%;
-		display: flex;
-		align-items: center;
-	}
-	.github {
-		background-color: #0078d4;
 	}
 </style>

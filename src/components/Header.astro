@@ -1,0 +1,42 @@
+---
+
+---
+
+<header>
+    <div><button>i</button><button>d</button></div>
+    <search><input type="text" /></search>
+    <div>
+        <button>a</button>
+        <button>b</button>
+        <button>c</button>
+        <button>d</button>
+    </div>
+</header>
+
+<style>
+    header {
+        /* background: rgb(var(--accent)); */
+        background-color: #29353b;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 35px;
+        max-height: 35px;
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    header > div {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    header > search > input {
+        background: #1e2429;
+        border: none;
+        border-radius: 3px;
+        height: 22px;
+        color: white;
+    }
+</style>
