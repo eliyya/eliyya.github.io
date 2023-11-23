@@ -5,7 +5,7 @@
 <footer>
     <ul>
         <li>
-            <a class="github" href="https://github.com/eliyya/">GitHub</a>
+            <a href="https://github.com/eliyya/">GitHub</a>
         </li>
         <li>
             <a href="https://github.com/eliyya/eliyya.github.io">portfolio</a>
@@ -30,6 +30,7 @@
         justify-content: space-between;
         align-items: center;
         height: 22px;
+        border-top: 1px solid #333;
     }
 
     footer ul {
@@ -62,7 +63,10 @@
         display: flex;
         align-items: center;
     }
-    .github {
+    footer ul li:hover {
+        background-color: #343434;
+    }
+    footer ul li:has(a):first-child {
         background-color: #0078d4;
     }
 </style>

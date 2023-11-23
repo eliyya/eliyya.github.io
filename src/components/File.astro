@@ -1,0 +1,20 @@
+---
+interface Props {
+    name: string;
+    path: string;
+    tabs: number;
+}
+
+const { name, path, tabs } = Astro.props;
+---
+
+<a href={path}><span style={`padding-left: ${tabs * 8}px;`}>{name}</span></a>
+
+<style>
+    span:hover {
+        background-color: #37373d;
+    }
+    span {
+        display: block;
+    }
+</style>

@@ -1,0 +1,47 @@
+---
+import Folder from "./Folder.astro";
+
+interface File {
+    name: string;
+    path: string;
+}
+
+interface Dir {
+    name: string;
+    children: Array<File | Dir>;
+}
+const fileTree: Array<File | Dir> = [
+    {
+        name: "public",
+        children: [
+            {
+                name: "favicon.svg",
+                path: "/favicon.svg",
+            },
+        ],
+    },
+    {
+        name: "src",
+        children: [
+            {
+                name: "components",
+                children: [
+                    {
+                        name: "Card.astro",
+                        path: "/components/Card.astro",
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: "README.md",
+        path: "/README.md",
+    },
+];
+---
+
+<aside>
+    <header>Explorer</header>
+    <Folder name="portfolio" children={fileTree} />
+</aside>

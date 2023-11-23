@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ActivityBar from "../components/ActivityBar.astro";
+import FileTree from "../components/FileTree.astro";
 
 interface Props {
 	title: string;
@@ -25,25 +26,9 @@ const { title } = Astro.props;
 		<Header />
 		<div class="central">
 			<ActivityBar />
-			<aside>
-				<header>Explorer</header>
-				<nav>
-					<div>
-						<span>public</span>
-						<a href="#">favicon.svg</a>
-					</div>
-					<div>
-						<span>src</span>
-						<div>
-							<span>components</span>
-							<a href="#">Card.astro</a>
-						</div>
-						<a href="#">README.md</a>
-					</div>
-				</nav>
-			</aside>
-			<!-- <slot /> -->
-			<main>holi</main>
+			<FileTree />
+			<slot />
+			<!-- <main>holi</main> -->
 		</div>
 		<Footer />
 	</body>
@@ -62,8 +47,9 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background: #1f1f1f;
 		background-size: 224px;
+		color: #fff;
 	}
 	code {
 		font-family:
@@ -84,7 +70,25 @@ const { title } = Astro.props;
 		height: 100vh;
 	}
 	.central {
+		overflow: hidden;
 		display: flex;
+		flex-grow: 1;
+	}
+	aside {
+		background-color: #181818;
+		color: white;
+		width: 170px;
+		font-size: 13px;
+		display: flex;
+		flex-direction: column;
+	}
+	aside header {
+		font-size: 13px;
+		padding: 10px 8px;
+		height: 35px;
+		text-transform: uppercase;
+	}
+	aside nav {
 		flex-grow: 1;
 	}
 </style>
