@@ -13,13 +13,23 @@ const { name, path, tabs } = Astro.props;
     export let tabs: number;
 </script>
 
-<a href={path}><span style={`padding-left: ${tabs * 8}px;`}>{name}</span></a>
+<a href={path}>
+    <span style={`padding-left: ${tabs * 4 + 18}px;`}>
+        {name}
+    </span>
+</a>
 
 <style>
-    span:hover {
-        background-color: #37373d;
+    a {
+        padding-right: 0.5rem;
     }
+
     span {
-        display: block;
+        display: flex;
+        gap: 0.25rem;
+
+        &:hover {
+            background-color: #37373d;
+        }
     }
 </style>

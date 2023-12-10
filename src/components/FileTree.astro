@@ -55,14 +55,17 @@ const fileTree: Array<File | Dir> = [
         display: flex;
         flex-direction: column;
         border-right: 1px solid #333;
-    }
-    aside header {
-        font-size: 13px;
-        padding: 10px 8px;
-        height: 35px;
-        text-transform: uppercase;
-    }
-    aside nav {
-        flex-grow: 1;
+        min-width: fit-content;
+
+        > header {
+            font-size: 13px;
+            padding: 10px 8px;
+            height: 35px;
+            text-transform: uppercase;
+
+            > aside > nav {
+                flex-grow: 1;
+            }
+        }
     }
 </style>
