@@ -1,5 +1,5 @@
 ---
-import Folder from "./Folder.astro";
+import Folder from "./Folder.svelte";
 
 interface File {
     name: string;
@@ -43,5 +43,26 @@ const fileTree: Array<File | Dir> = [
 
 <aside>
     <header>Explorer</header>
-    <Folder name="portfolio" children={fileTree} />
+    <Folder client:load name="portfolio" children={fileTree} />
 </aside>
+
+<style>
+    aside {
+        background-color: #181818;
+        color: white;
+        width: 170px;
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #333;
+    }
+    aside header {
+        font-size: 13px;
+        padding: 10px 8px;
+        height: 35px;
+        text-transform: uppercase;
+    }
+    aside nav {
+        flex-grow: 1;
+    }
+</style>

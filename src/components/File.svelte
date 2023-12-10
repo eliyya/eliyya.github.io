@@ -1,4 +1,4 @@
----
+<!-- ---
 interface Props {
     name: string;
     path: string;
@@ -6,7 +6,12 @@ interface Props {
 }
 
 const { name, path, tabs } = Astro.props;
----
+--- -->
+<script lang="ts">
+    export let name: string;
+    export let path: string;
+    export let tabs: number;
+</script>
 
 <a href={path}><span style={`padding-left: ${tabs * 8}px;`}>{name}</span></a>
 
