@@ -1,0 +1,15 @@
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "astro", // Enable .astro
+        "typescript", // Enable .ts
+        "typescriptreact" // Enable .tsx
+    ],
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "eslint.format.enable": true,
+    "[astro]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
+}
