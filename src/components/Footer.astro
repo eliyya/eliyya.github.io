@@ -1,0 +1,90 @@
+---
+
+---
+
+<footer>
+    <ul>
+        <li>
+            <a href="https://github.com/eliyya/">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.9041 9.57067L8.9281 5.59463L12.9041 1.6186L12.2854 0.999878L8.00002 5.28527V5.90399L12.2854 10.1894L12.9041 9.57067ZM3 5.61874L7.07191 9.69064L3 13.7626L3.61872 14.3813L7.99999 10V9.38128L3.61872 5.00002L3 5.61874Z"
+                        fill="#fff"></path>
+                </svg>GitHub</a
+            >
+        </li>
+        <li>
+            <a href="https://github.com/eliyya/eliyya.github.io">portfolio</a>
+        </li>
+    </ul>
+    <ul>
+        <li>Ln 1, Col 1</li>
+        <li>Tab Size: 4</li>
+        <li>UTF-8</li>
+        <li>LF</li>
+        <li>TypeScript</li>
+        <li>N</li>
+    </ul>
+</footer>
+
+<style>
+    footer {
+        background-color: #181818;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 22px;
+        border-top: 1px solid #333;
+
+        > ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            align-items: center;
+
+            > li {
+                font-size: 12px;
+                display: flex;
+                height: 100%;
+                align-items: center;
+
+                > a {
+                    padding: 0 5px;
+                    color: white;
+                    text-decoration: none;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &:has(a):first-child {
+                    background-color: #0078d4;
+                }
+
+                &:not(:has(a)) {
+                    padding: 0 10px;
+                    color: white;
+                    text-decoration: none;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &:hover {
+                    background-color: #343434;
+                }
+            }
+        }
+    }
+</style>
