@@ -3,6 +3,9 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import ActivityBar from '../components/ActivityBar.astro'
 import FileTree from '../components/FileTree.astro'
+import Search from '../components/Search.astro'
+import Git from '../components/Git.astro'
+import Extensions from '../components/Extensions.astro'
 
 interface Props {
     title: string
@@ -34,6 +37,9 @@ const { title } = Astro.props;
     <div class="central">
         <ActivityBar />
         <FileTree />
+        <Search />
+        <Git />
+        <Extensions />
         <slot />
       <!-- <main>holi</main> -->
     </div>
@@ -87,6 +93,18 @@ const { title } = Astro.props;
   }
 
   .central:not(:has(ul > li > label > #act-files:checked)) > #fileTree {
+    display: none;
+  }
+
+  .central:not(:has(ul > li > label > #act-search:checked)) > #search {
+    display: none;
+  }
+
+  .central:not(:has(ul > li > label > #act-git:checked)) > #git {
+    display: none;
+  }
+
+  .central:not(:has(ul > li > label > #act-extensions:checked)) > #extensions {
     display: none;
   }
 
