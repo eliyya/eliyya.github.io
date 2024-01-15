@@ -2,48 +2,48 @@
 import Folder from './Folder.svelte'
 
 interface File {
-  name: string
-  path: string
+    name: string
+    path: string
 }
 
 interface Dir {
-  name: string
-  children: Array<File | Dir>
+    name: string
+    children: Array<File | Dir>
 }
 const fileTree: Array<File | Dir> = [
-  {
-    name: 'public',
-    children: [
-      {
-        name: 'favicon.svg',
-        path: '/favicon'
-      }
-    ]
-  },
-  {
-    name: 'src',
-    children: [
-      {
-        name: 'components',
+    {
+        name: 'public',
         children: [
-          {
-            name: 'Card.astro',
-            path: '/components/Card.astro'
-          }
+            {
+                name: 'avatar.jpg',
+                path: '/avatar'
+            }
         ]
-      }
-    ]
-  },
-  {
-    name: 'README.md',
-    path: '/README.md'
-  }
+    },
+    {
+        name: 'src',
+        children: [
+            {
+                name: 'components',
+                children: [
+                    {
+                        name: 'Card.astro',
+                        path: '/components/Card.astro'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'README.md',
+        path: '/'
+    }
 ];
 ---
 
 <aside id="fileTree">
-  <header>Explorer</header>
-  <Folder client:load name="portfolio" children={fileTree} />
+    <header>Explorer</header>
+    <Folder client:load name="portfolio" children={fileTree} />
 </aside>
 
 <style>

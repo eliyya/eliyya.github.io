@@ -21,7 +21,7 @@ const { name, path, tabs } = Astro.props;
 
 <style>
   a {
-    padding-right: 0.5rem;
+    /* padding-right: 0.5rem; */
   }
 
   span {
