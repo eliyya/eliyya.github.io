@@ -5,7 +5,7 @@ import ActivityBar from '../components/ActivityBar.astro'
 import FileTree from '../components/FileTree.astro'
 
 interface Props {
-  title: string
+    title: string
 }
 
 const { title } = Astro.props;
@@ -13,25 +13,25 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
     <!-- clone of visual studio code -->
     <Header />
     <div class="central">
-      <ActivityBar />
-      <FileTree />
-      <slot />
+        <ActivityBar />
+        <FileTree />
+        <slot />
       <!-- <main>holi</main> -->
     </div>
     <Footer />
-  </body>
+    </body>
 </html>
 <style is:global>
   :root {
@@ -73,5 +73,21 @@ const { title } = Astro.props;
     overflow: hidden;
     display: flex;
     flex-grow: 1;
+  }
+
+  .central:last-child {
+    flex-grow: 1;
+  }
+
+  .central:not(:has(ul > li > label > #act-files:checked)) > #fileTree {
+    display: none;
+  }
+
+  .central > ul > li > label:has(input:checked) > svg {
+    color: #fff;
+  }
+
+  .central > ul > li > label > input[name='activity'] {
+    display: none;
   }
 </style>
